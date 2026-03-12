@@ -24,8 +24,11 @@ TripNode - 국내 1인 여행자를 위한 지도 기반 맞춤형 여행 일정
 - **Language:** TypeScript (strict mode)
 - **Styling:** Tailwind CSS 4
 - **Linting:** ESLint 9 with eslint-config-next
-- **Map API:** TBD
-- **LLM integration:** TBD
+- **Map API:** Google Maps Platform (렌더링, 검색, 자동완성, 지오코딩, 경로 계산)
+- **LLM:** 의도 해석, 노드 추천, 일정 초안, 경로 재배치, 리뷰 요약 용도 (구체적 모델 TBD)
+- **Database:** PostgreSQL + PostGIS (좌표/거리 기반 처리)
+- **Cache:** Redis
+- **Deployment:** Vercel (프론트/초기 서버) + 관리형 PostgreSQL
 
 ## Commands
 
@@ -59,8 +62,38 @@ src/
 - 사용자 경험(UX)을 최우선으로 고려한다
 - `@/*` import alias를 사용한다 (e.g., `@/components/Button`)
 
+### 글로벌 확장 원칙
+- UI 문구는 하드코딩 대신 국제화(i18n) 가능한 구조로 관리
+- 장소 식별은 문자열보다 외부 Place ID 중심
+- 국가/통화/시간대/주소 체계에 종속되지 않도록 설계
+
+### 비용 통제 원칙
+- 장소 검색/상세/경로 계산 결과는 캐싱 우선
+- 자동완성/검색 요청은 debounce 적용
+- LLM 결과도 재사용 가능한 경우 저장하여 중복 호출 방지
+- 민감한 API 호출은 서버를 통해 제어
+
+### 보안 원칙
+- 외부 API 키는 클라이언트에 노출하지 않는다
+- 지도 API 키는 도메인/IP 제한 설정
+- 사용자별 데이터 접근은 권한 기준으로 분리
+
+## MVP Priority (순서대로)
+
+1. 지도 표시
+2. 장소 검색
+3. 노드 추가/이동/삭제
+4. 노드 간 경로 계산
+5. 여행 일정 저장
+6. LLM 기반 1차 추천 기능
+
+상세 기술 스펙은 `learned/skills_spec.md` 참조.
+
 ## Key Decisions (update as project evolves)
 
 - Frontend: Next.js 16 + TypeScript + Tailwind CSS 4
-- Map API: TBD
-- LLM integration: TBD
+- Map API: Google Maps Platform
+- Database: PostgreSQL + PostGIS
+- Cache: Redis
+- Deployment: Vercel
+- LLM integration: TBD (구체적 모델/서비스 미정)
