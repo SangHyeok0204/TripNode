@@ -93,51 +93,14 @@ src/
 
 ## Development Status
 
-### 완료
+현재 단계: **MVP Phase 1 - 지도 기반 UI 구축**
 
-#### 페이지
-- `src/app/page.tsx` — 랜딩 페이지 (홈)
-- `src/app/plan/page.tsx` — 여행 계획 편집 페이지
+- 랜딩 페이지: 완료
+- Plan 페이지 UI: 완료
+- Google Maps 연동: 완료
+- 장소 검색/노드 인터랙션: 진행 중
 
-#### 랜딩 페이지 컴포넌트 (`src/components/landing/`)
-- Hero, ProblemComparison, KeyFeatures, HowItWorks, ExampleCourses, BrandPhilosophy, FinalCTA
-
-#### Mock 컴포넌트 (`src/components/mock/`)
-- NodeMarker, RecommendSpot, RouteLine, GenerateButton, LegacyUIStack, MapMock
-
-#### Plan 페이지 컴포넌트 (`src/components/plan/`)
-- PlanWorkspace — 전체 레이아웃 (지도 + 사이드패널)
-- PlanHeader — 상단 헤더
-- MapCanvas — 지도 영역 컨테이너
-- GoogleMapView — Google Maps 렌더링 (API 연동 완료)
-- WorkspacePanel — 우측 사이드패널
-- SearchSection — 장소 검색 UI
-- NodeList — 노드 목록
-- NodeDetail — 노드 상세 정보
-- PlanNodeMarker — 지도 위 노드 마커
-- NodePopover — 노드 클릭 시 팝오버
-- RouteOverlay — 경로 오버레이
-
-#### 공통 UI (`src/components/ui/`)
-- SectionWrapper, Button
-
-#### Hooks (`src/hooks/`)
-- usePlanState — Plan 페이지 상태 관리
-- useCurrentLocation — 현재 위치 가져오기
-
-#### 타입 정의 (`src/types/`)
-- plan.ts — Plan 관련 타입 (TripNode, PlanState 등)
-- index.ts — 공통 타입
-
-### 진행 중
-- 장소 검색 기능 (Google Places API 연동)
-- 노드 추가/이동/삭제 인터랙션
-
-### 미착수 (MVP 기준)
-- 장소 자동완성 (debounce 적용)
-- 노드 간 경로 계산 (Directions API)
-- 여행 일정 저장 (DB 연동)
-- LLM 기반 추천 기능
+상세 개발 상태는 `learned/development_status.md` 참조.
 
 ## Homepage Spec
 
