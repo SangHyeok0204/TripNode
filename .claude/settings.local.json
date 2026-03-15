@@ -10,7 +10,11 @@
       "Bash(cd \"C:/Users/adg01/OneDrive/바탕 화면/TripNode\" && touch src/components/.gitkeep src/lib/.gitkeep src/types/.gitkeep)",
       "Bash(cd \"C:/Users/adg01/OneDrive/바탕 화면/TripNode\" && npm run lint 2>&1)",
       "Bash(cd \"C:/Users/adg01/OneDrive/바탕 화면/TripNode\" && npm run build 2>&1)",
-      "Bash(cd \"C:/Users/adg01/OneDrive/바탕 화면/TripNode\" && gh auth status 2>&1)"
+      "Bash(cd \"C:/Users/adg01/OneDrive/바탕 화면/TripNode\" && gh auth status 2>&1)",
+      "Bash(timeout:*)",
+      "Bash(netstat:*)",
+      "Bash(findstr:*)",
+      "WebSearch"
     ]
   }
 }

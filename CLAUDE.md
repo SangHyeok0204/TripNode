@@ -5,8 +5,8 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 ## Project
 
 TripNode - 국내 1인 여행자를 위한 지도 기반 맞춤형 여행 일정 생성 서비스.
-지도 API와 LLM을 활용하여 사용자의 취향, 일정, 이동 조건에 맞는 여행 코스를 추천하고,
-지도 위에서 노드를 직접 비교/배치하며 경로를 설계하는 사용자 참여형 경험을 제공한다.
+사용자가 지도 위에 기준 노드를 배치하고 [생성] 버튼을 누르면, 그 근처에 취향을 반영한 추천 장소들이 빨간 스팟으로 표시된다.
+LLM과 지도 API를 활용하여 오픈 여부, 경로 정보 등을 제공하고, 사용자가 직접 비교/선택하며 경로를 설계하는 참여형 경험을 제공한다.
 
 ## Core Philosophy
 
@@ -88,6 +88,17 @@ src/
 6. LLM 기반 1차 추천 기능
 
 상세 기술 스펙은 `learned/skills_spec.md` 참조.
+
+## Claude 작업 원칙
+
+- 명시적 구현 지시 전까지 코드를 작성하지 않는다
+- 작업 순서: 요구사항 해석 → 구조 설계 → 충돌 점검 → 계획 제시 → 승인 후 구현
+- learned 폴더 문서와 충돌 시 먼저 명시하고 승인 없이 강행하지 않는다
+- 요청 범위를 과잉 해석하지 않는다
+- 작고 명확한 단위로 변경한다
+- 파괴적 변경(파일 삭제, 대규모 리팩토링 등)은 사전 동의 후 진행한다
+
+상세 원칙은 `learned/KEEP_IN_MIND.md` 참조.
 
 ## Key Decisions (update as project evolves)
 
