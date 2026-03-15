@@ -14,7 +14,8 @@
       "Bash(timeout:*)",
       "Bash(netstat:*)",
       "Bash(findstr:*)",
-      "WebSearch"
+      "WebSearch",
+      "Bash(npm install:*)"
     ]
   }
 }

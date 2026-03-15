@@ -38,7 +38,7 @@ export function Hero() {
 
         {/* CTA Button */}
         <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
-          <Button size="lg" variant="primary">
+          <Button size="lg" variant="primary" href="/plan">
             여행 코스 만들기
             <svg
               className="w-5 h-5 ml-2"
@@ -54,7 +54,7 @@ export function Hero() {
               />
             </svg>
           </Button>
-          <Button size="lg" variant="outline">
+          <Button size="lg" variant="outline" href="#how-it-works">
             서비스 미리보기
           </Button>
         </div>

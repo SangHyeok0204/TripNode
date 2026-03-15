@@ -40,6 +40,7 @@ export function FinalCTA() {
         <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
           <Button
             size="lg"
+            href="/plan"
             className="bg-white text-primary-600 hover:bg-primary-50 active:bg-primary-100 shadow-lg"
           >
             시작하기

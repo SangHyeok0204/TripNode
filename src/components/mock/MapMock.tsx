@@ -47,7 +47,7 @@ export function MapMock({
 
       {/* Routes - SVG lines connecting nodes */}
       {showRoutes && (
-        <svg className="absolute inset-0 w-full h-full pointer-events-none">
+        <svg className="absolute inset-0 w-full h-full pointer-events-none transition-opacity duration-300 group-hover/tripnode:opacity-100">
           {/* Route from node 1 to spot 1 */}
           <path
             d="M 25% 30% Q 35% 35%, 40% 25%"
@@ -55,7 +55,7 @@ export function MapMock({
             strokeWidth="2"
             strokeDasharray="6 4"
             fill="none"
-            className="opacity-60"
+            className="opacity-60 transition-all duration-300 group-hover/tripnode:opacity-80 group-hover/tripnode:stroke-[var(--primary-500)]"
           />
           {/* Route from node 1 to spot 2 */}
           <path
@@ -64,7 +64,7 @@ export function MapMock({
             strokeWidth="2"
             strokeDasharray="6 4"
             fill="none"
-            className="opacity-60"
+            className="opacity-60 transition-all duration-300 group-hover/tripnode:opacity-80 group-hover/tripnode:stroke-[var(--primary-500)]"
           />
           {/* Route from node 2 to spot 3 */}
           <path
@@ -73,7 +73,7 @@ export function MapMock({
             strokeWidth="2"
             strokeDasharray="6 4"
             fill="none"
-            className="opacity-60"
+            className="opacity-60 transition-all duration-300 group-hover/tripnode:opacity-80 group-hover/tripnode:stroke-[var(--primary-500)]"
           />
         </svg>
       )}
@@ -81,10 +81,10 @@ export function MapMock({
       {/* Base Nodes - user placed */}
       {showNodes && (
         <>
-          <div className="absolute top-[28%] left-[23%]">
+          <div className="absolute top-[28%] left-[23%] transition-transform duration-300 group-hover/tripnode:scale-110">
             <NodeMarker label="1" size="lg" variant="selected" />
           </div>
-          <div className="absolute top-[53%] left-[63%]">
+          <div className="absolute top-[53%] left-[63%] transition-transform duration-300 delay-75 group-hover/tripnode:scale-110">
             <NodeMarker label="2" size="lg" />
           </div>
         </>
@@ -93,16 +93,16 @@ export function MapMock({
       {/* Recommend Spots - generated */}
       {showSpots && (
         <>
-          <div className="absolute top-[22%] left-[38%]">
+          <div className="absolute top-[22%] left-[38%] transition-transform duration-300 delay-100 group-hover/tripnode:scale-[1.12]">
             <RecommendSpot size="md" pulse />
           </div>
-          <div className="absolute top-[48%] left-[33%]">
+          <div className="absolute top-[48%] left-[33%] transition-transform duration-300 delay-150 group-hover/tripnode:scale-[1.12]">
             <RecommendSpot size="md" pulse />
           </div>
-          <div className="absolute top-[38%] left-[48%]">
+          <div className="absolute top-[38%] left-[48%] transition-transform duration-300 delay-200 group-hover/tripnode:scale-[1.12]">
             <RecommendSpot size="md" pulse />
           </div>
-          <div className="absolute top-[62%] left-[45%]">
+          <div className="absolute top-[62%] left-[45%] transition-transform duration-300 delay-[250ms] group-hover/tripnode:scale-[1.12]">
             <RecommendSpot size="sm" pulse />
           </div>
         </>
@@ -110,7 +110,7 @@ export function MapMock({
 
       {/* Generate Button */}
       {showButton && (
-        <div className="absolute top-4 right-4">
+        <div className="absolute top-4 right-4 transition-transform duration-300 group-hover/tripnode:scale-105">
           <GenerateButton />
         </div>
       )}

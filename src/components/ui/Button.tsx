@@ -1,9 +1,12 @@
+import Link from "next/link";
+
 interface ButtonProps {
   children: React.ReactNode;
   variant?: "primary" | "secondary" | "outline";
   size?: "sm" | "md" | "lg";
   className?: string;
   onClick?: () => void;
+  href?: string;
 }
 
 export function Button({
@@ -12,6 +15,7 @@ export function Button({
   size = "md",
   className = "",
   onClick,
+  href,
 }: ButtonProps) {
   const baseStyles =
     "inline-flex items-center justify-center font-medium rounded-lg transition-all duration-200 cursor-pointer";
@@ -31,11 +35,18 @@ export function Button({
     lg: "px-8 py-4 text-lg",
   };
 
+  const combinedClassName = `${baseStyles} ${variants[variant]} ${sizes[size]} ${className}`;
+
+  if (href) {
+    return (
+      <Link href={href} className={combinedClassName}>
+        {children}
+      </Link>
+    );
+  }
+
   return (
-    <button
-      className={`${baseStyles} ${variants[variant]} ${sizes[size]} ${className}`}
-      onClick={onClick}
-    >
+    <button className={combinedClassName} onClick={onClick}>
       {children}
     </button>
   );

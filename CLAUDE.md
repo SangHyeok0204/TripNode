@@ -8,6 +8,8 @@ TripNode - 국내 1인 여행자를 위한 지도 기반 맞춤형 여행 일정
 사용자가 지도 위에 기준 노드를 배치하고 [생성] 버튼을 누르면, 그 근처에 취향을 반영한 추천 장소들이 빨간 스팟으로 표시된다.
 LLM과 지도 API를 활용하여 오픈 여부, 경로 정보 등을 제공하고, 사용자가 직접 비교/선택하며 경로를 설계하는 참여형 경험을 제공한다.
 
+**서비스 정체성**: 지도 기반 의사결정 도우미이자, 사용자 참여형 여행 설계 도구
+
 ## Core Philosophy
 
 - 복잡한 정보보다 실행 가능한 선택
@@ -88,6 +90,65 @@ src/
 6. LLM 기반 1차 추천 기능
 
 상세 기술 스펙은 `learned/skills_spec.md` 참조.
+
+## Development Status
+
+### 완료
+
+#### 페이지
+- `src/app/page.tsx` — 랜딩 페이지 (홈)
+- `src/app/plan/page.tsx` — 여행 계획 편집 페이지
+
+#### 랜딩 페이지 컴포넌트 (`src/components/landing/`)
+- Hero, ProblemComparison, KeyFeatures, HowItWorks, ExampleCourses, BrandPhilosophy, FinalCTA
+
+#### Mock 컴포넌트 (`src/components/mock/`)
+- NodeMarker, RecommendSpot, RouteLine, GenerateButton, LegacyUIStack, MapMock
+
+#### Plan 페이지 컴포넌트 (`src/components/plan/`)
+- PlanWorkspace — 전체 레이아웃 (지도 + 사이드패널)
+- PlanHeader — 상단 헤더
+- MapCanvas — 지도 영역 컨테이너
+- GoogleMapView — Google Maps 렌더링 (API 연동 완료)
+- WorkspacePanel — 우측 사이드패널
+- SearchSection — 장소 검색 UI
+- NodeList — 노드 목록
+- NodeDetail — 노드 상세 정보
+- PlanNodeMarker — 지도 위 노드 마커
+- NodePopover — 노드 클릭 시 팝오버
+- RouteOverlay — 경로 오버레이
+
+#### 공통 UI (`src/components/ui/`)
+- SectionWrapper, Button
+
+#### Hooks (`src/hooks/`)
+- usePlanState — Plan 페이지 상태 관리
+- useCurrentLocation — 현재 위치 가져오기
+
+#### 타입 정의 (`src/types/`)
+- plan.ts — Plan 관련 타입 (TripNode, PlanState 등)
+- index.ts — 공통 타입
+
+### 진행 중
+- 장소 검색 기능 (Google Places API 연동)
+- 노드 추가/이동/삭제 인터랙션
+
+### 미착수 (MVP 기준)
+- 장소 자동완성 (debounce 적용)
+- 노드 간 경로 계산 (Directions API)
+- 여행 일정 저장 (DB 연동)
+- LLM 기반 추천 기능
+
+## Homepage Spec
+
+홈페이지(랜딩 페이지)는 TripNode의 핵심 가치를 첫인상에서 전달해야 한다.
+- 첫 화면에서 지도 + 노드 + 경로가 보여야 함
+- 텍스트보다 시각 경험 우선
+- "AI 추천 앱"이 아닌 "지도 기반 여행 설계 툴" 인상
+
+섹션 순서: Hero → 문제 공감 → 핵심 차별점 → 사용 흐름 → 예시 코스 → 브랜드 철학 → 최종 CTA
+
+상세 스펙은 `learned/lendingpage_spec.md` 참조.
 
 ## Claude 작업 원칙
 
